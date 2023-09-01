@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod a=rx,u+w hello
+chmod  750 hello
