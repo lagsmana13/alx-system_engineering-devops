@@ -1,2 +1,4 @@
 #!/bin/bash
 sudo chown betty hello
+#!/bin/bash
+schown --from=guillaume betty hello
