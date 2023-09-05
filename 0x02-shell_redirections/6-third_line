@@ -1,2 +1,4 @@
 #!/bin/bash
 awk NR==3 iacta
+#!/bin/bash
+head -n 3 iacta | tail -n 1
