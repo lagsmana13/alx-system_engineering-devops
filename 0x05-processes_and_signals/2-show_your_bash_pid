@@ -1,15 +1,11 @@
 #!/usr/bin/env bash
+# Script that extends the previous exercise command
+# Displays lines containing the word "bash", allowing you to easily get the PID of your Bash process
+# Does not use pgrep
 # shellcheck disable=SC2009
 
-# Bash script that displays lines containing the word "bash" to get the PID of the Bash process.
+# Execute the previous exercise script to list all processes
+./1-list_your_processes |
 
-# Use ps command to retrieve information about processes
-# -ax argument: Display all processes, including those without a controlling terminal
-# -o argument: Customize the output format
-#   -pid: Process ID
-#   -cmd: Command
-#   -args: Command arguments
-# --no-headers argument: Exclude the header line from the output
-# grep command: Filter lines containing the word "bash"
-
-ps -ax -o pid,cmd,args --no-headers | grep bash
+# Use grep command to filter lines containing the word "bash"
+grep "bash"
