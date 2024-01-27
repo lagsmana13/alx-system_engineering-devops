@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Script to create a PID file, display messages, and handle signals
+
+# Define a function to handle the termination and cleanup tasks
+function love() {
+    # Remove the PID file
+    rm /var/run/holbertonscript.pid
+
+    # Terminate the script
+    exit
+}
+
+# Trap the SIGTERM signal and execute the specified commands
+trap "echo I hate the kill command; love" SIGTERM
+
+# Trap the SIGINT signal and execute the specified commands
+trap "echo Y U no love me?!; love" SIGINT
+
+# Append the script's PID to the PID file
+echo $$ >> /var/run/holbertonscript.pid
+
+# Enter an infinite loop
+while [ true ]; do
+    # Output the statement "To infinity and beyond"
+    echo "To infinity and beyond"
+done

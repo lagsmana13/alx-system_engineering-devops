@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Script to kill the process named "4-to_infinity_and_beyond" without using `kill` or `killall`
+
+# Use the `pkill` command to send a signal to the process matching the given criteria
+# -f: Match against the full command line, including arguments
+# "beyond": Matches the process whose command line contains the word "beyond"
+pkill -f beyond

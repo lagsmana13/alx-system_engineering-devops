@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Script to kill the process named "7-highlander"
+
+# Use the `pgrep` command to find the process ID of the process matching the given criteria
+# -f: Match against the full command line, including arguments
+# "highlander": Matches the process whose command line contains the word "highlander"
+pid=$(pgrep -f highlander)
+
+# Use the `kill` command with the signal number 9 (SIGKILL) to forcefully terminate the process with the specified PID
+kill -9 "$pid"
