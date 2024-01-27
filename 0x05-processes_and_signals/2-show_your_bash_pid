@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC2009
+
+# Bash script that displays lines containing the word "bash" to get the PID of the Bash process.
+
+# Use ps command to retrieve information about processes
+# -ax argument: Display all processes, including those without a controlling terminal
+# -o argument: Customize the output format
+#   -pid: Process ID
+#   -cmd: Command
+#   -args: Command arguments
+# --no-headers argument: Exclude the header line from the output
+# grep command: Filter lines containing the word "bash"
+
+ps -ax -o pid,cmd,args --no-headers | grep bash
