@@ -7,4 +7,16 @@
 # -f argument: Match against the full command line, including arguments
 # bash keyword: Matches processes whose name contains the word "bash"
 
-pgrep -lf bash
+# Store the PID of the current script
+script_pid=$$
+
+# Use pgrep to find the PIDs and process names of processes with "bash" in their name
+processes=$(pgrep -lf bash)
+
+# Loop through each line in the output of pgrep
+while IFS=' ' read -r pid pname; do
+  # Exclude the current script's PID from the output
+  if [[ $pid -ne $script_pid ]]; then
+    echo "$pid $pname"
+  fi
+done <<< "$processes"
