@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Bash script that displays a list of currently running processes.
+
+# Use the ps command to retrieve information about running processes
+# -ax arguments: Display all processes, including those without a controlling terminal
+# -o arguments: Customize the output format
+#   -pid: Process ID
+#   -ppid: Parent Process ID
+#   -user: User
+#   -cmd: Command
+#   -args: Command arguments
+# --forest argument: Display process hierarchy
+
+ps -ax -o pid,ppid,user,cmd,args --forest
