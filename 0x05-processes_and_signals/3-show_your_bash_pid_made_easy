@@ -2,19 +2,18 @@
 
 # Bash script that displays the PID and process name of processes whose name contains the word "bash".
 
-# Use pgrep command to find process IDs of processes matching the given criteria
-# -l argument: List the process name along with the PID
-# -f argument: Match against the full command line, including arguments
-# bash keyword: Matches processes whose name contains the word "bash"
-
 # Store the PID of the current script
 script_pid=$$
 
 # Use pgrep to find the PIDs and process names of processes with "bash" in their name
-processes=$(pgrep -lf bash)
+processes=$(pgrep -l bash)
 
 # Loop through each line in the output of pgrep
-while IFS=' ' read -r pid pname; do
+while read -r line; do
+  # Extract the PID and process name from each line
+  pid=$(echo "$line" | awk '{print $1}')
+  pname=$(echo "$line" | awk '{print $2}')
+
   # Exclude the current script's PID from the output
   if [[ $pid -ne $script_pid ]]; then
     echo "$pid $pname"
