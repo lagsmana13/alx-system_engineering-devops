@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Script to display a statement indefinitely
+
+while true; do
+    # Output the statement "To infinity and beyond"
+    echo "To infinity and beyond"
+
+    # Pause the script execution for 2 seconds
+    sleep 2
+done

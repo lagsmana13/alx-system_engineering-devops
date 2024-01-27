@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Script to kill a process using the `kill` command
+
+# Use the `ps` command along with `pgrep` to find the process ID of the process matching the given criteria
+# -x: Include all processes
+# -f: Match against the full command line, including arguments
+# "beyond": Matches the process whose command line contains the word "beyond"
+pid=$(ps -x | pgrep -f beyond)
+
+# Use the Kill command to send a signal to the process with the specified PID
+kill "$pid"
