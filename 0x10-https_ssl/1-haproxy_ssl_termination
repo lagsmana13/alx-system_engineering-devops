@@ -26,9 +26,9 @@ defaults
 	mode	http
 	option	httplog
 	option	dontlognull
-        # Ensure forwarded request includes client's IP
+        #To Ensure forwarded request includes client's IP
 	option forwardfor
-	# Reduce latency between HAProxy and users by closing conns
+	# To Reduce latency between HAProxy and users by closing conns
 	option http-server-close
         timeout connect 5000
         timeout client  50000
