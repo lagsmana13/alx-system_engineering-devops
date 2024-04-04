@@ -1,21 +1,4 @@
 #!/usr/bin/env bash
-#This is  a Bash script that displays information about the subdomains
-
-if [ $# -lt 1 ]; then
-  echo "Usage: $0 domain [subdomain1 subdomain2 ...]"
-  exit 1
-fi
-
-domain="$1"
-
-# Config the subdomains to query
-subdomains=("www" "lb-01" "web-01" "web-02")
-
-if [ $# -gt 1 ]; then
-  subdomains+=("${@:2}")
-fi
-
-# Loop through subdomains and display info#!/usr/bin/env bash
 # A Bash script that will display information about the subdomains
 
 # Check if at least one argument is provided
@@ -36,14 +19,6 @@ if [ $# -gt 1 ]; then
 fi
 
 # Loop through subdomains and display information
-for subdomain in "${subdomains[@]}"; do
-  output=$(dig "$subdomain.$domain" +short)
-  if [ -n "$output" ]; then
-    echo "The subdomain $subdomain has IP address $output"
-  else
-    echo "The subdomain $subdomain does not exist"
-  fi
-do
 for subdomain in "${subdomains[@]}"; do
   output=$(dig "$subdomain.$domain" +short)
   if [ -n "$output" ]; then
