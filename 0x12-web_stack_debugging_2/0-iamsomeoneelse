@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Execute application under an alternate user
+#I lack comprehension of the exact purpose of this script, but we express gratitude
+sudo -u "$1" whoami
